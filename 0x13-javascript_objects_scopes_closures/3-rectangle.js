@@ -1,24 +1,18 @@
 #!/usr/bin/node
-// Script class Rectangle that defines a rectangle
-
-const Rectangle = class Rectangle {
+// Rectangle class that has a constructor with height and width
+class Rectangle {
   constructor (w, h) {
-    if (w > 0 && h > 0) {
+    if (Number.isInteger(w) && Number.isInteger(h) && w > 0 && h > 0) {
       this.width = w;
       this.height = h;
     }
   }
 
-  print () {
-    let prints = '';
-    for (let cont1 = 0; cont1 < this.height; cont1++) {
-      for (let cont = 0; cont < this.width; cont++) {
-        prints = prints + 'X';
-      }
-      console.log(prints);
-      prints = '';
+  print (pChar = 'X') {
+    for (let i = 0; i < this.height; i++) {
+      console.log(pChar.repeat(this.width));
     }
   }
-};
+}
 
 module.exports = Rectangle;

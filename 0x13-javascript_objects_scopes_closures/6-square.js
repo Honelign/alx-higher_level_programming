@@ -1,23 +1,9 @@
 #!/usr/bin/node
-// class Square that defines a square and inherits from Square
-
-const Square_ = require('./5-square');
-
-const Square = class Square extends Square_ {
+// Class Square that has charPrint method
+class Square extends require('./5-square') {
   charPrint (c) {
-    if (c) {
-      let prints = '';
-      for (let cont = 0; cont < this.height; cont++) {
-        for (let cont = 0; cont < this.height; cont++) {
-          prints = prints + c;
-        }
-        console.log(prints);
-        prints = '';
-      }
-    } else {
-      super.print();
-    }
+    super.print(c);
   }
-};
+}
 
 module.exports = Square;

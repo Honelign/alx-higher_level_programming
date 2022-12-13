@@ -1,35 +1,28 @@
 #!/usr/bin/node
-// class Rectangle that defines a rectangle
-
+// Rectangle class that has a constructor with height and width
 class Rectangle {
   constructor (w, h) {
-    if (w > 0 && h > 0) {
+    if (Number.isInteger(w) && Number.isInteger(h) && w > 0 && h > 0) {
       this.width = w;
       this.height = h;
     }
   }
 
-  print () {
-    let i, j, string;
-    for (i = 0; i < this.height; i++) {
-      string = '';
-      for (j = 0; j < this.width; j++) {
-        string += 'X';
-      }
-      console.log(string);
+  print (pChar = 'X') {
+    for (let i = 0; i < this.height; i++) {
+      console.log(pChar.repeat(this.width));
     }
   }
 
-  rotate () {
-    let temp;
-    temp = this.height;
-    this.height = this.width;
-    this.width = temp;
+  double () {
+    this.width *= 2;
+    this.height *= 2;
   }
 
-  double () {
-    this.height *= 2;
-    this.width *= 2;
+  rotate () {
+    const temp = this.width;
+    this.width = this.height;
+    this.height = temp;
   }
 }
 
